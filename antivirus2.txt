@@ -1,0 +1,64 @@
+@echo off
+title Antivirus
+echo /———————–\
+echo +-+-+-+-+-+-+-+-+-+-+-+
+echo Antivirus created by
+echo +-+-+-+-+-+-+-+-+-+-+-+
+echo Your Name
+echo +-+-+-+-+-+-+-+-+-+-+-+
+echo \———————–/
+echo Press any key to scan!
+pause
+:start
+echo Scanning…
+if exist virus.bat goto infected1
+if exist virus.exe goto infected2
+if exist 1002.exe goto lethal1
+if exist melissa.doc goto lethal2
+if exist iloveyou.doc goto lethal3
+if not exist virus.bat goto clean
+if not exist virus.exe goto clean
+if not exist virus.doc goto clean
+if not exist 1002.exe goto clean
+if not exist melissa.doc goto clean
+if not exist iloveyou.doc goto clean
+cd C:\Windows\system32
+:infected1
+echo Warning! Virus detected!
+echo Cleaning…
+del virus.bat
+echo Cleaned!
+goto start
+goto clean
+:infected2
+echo Warning! Virus detected!
+echo Cleaning…
+del virus.exe
+echo Cleaned!
+goto start
+goto clean
+:lethal1
+echo Warning, lethal virus detected!
+echo Cleaning…
+del 1002.exe
+echo Cleaned!
+goto start
+goto clean
+:lethal2
+echo Warning, lethal virus detected!
+echo Cleaning…
+del melissa.doc
+echo Cleaned!
+goto start
+goto clean
+:lethal3
+echo Warning, lethal virus detected!
+echo Cleaning…
+del iloveyou.doc
+echo Cleaned!
+goto start
+goto clean
+:clean
+echo System secure!
+pause
+exit
